@@ -12,5 +12,7 @@ namespace Homework5
         {
             get { return DateTime.Now; }
         }
+
+        public LoggerType Type { get; set; }
     }
 }

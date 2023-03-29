@@ -10,7 +10,6 @@ namespace Homework5
     {
         private static Logger? _instance;
         private readonly List<string> _logs = new List<string>();
-        private readonly LoggerRecord _loggerRecord = new LoggerRecord();
 
         private Logger()
         {
@@ -28,20 +27,23 @@ namespace Homework5
 
         public void LoggerError(string text)
         {
-            _logs.Add($"{_loggerRecord.Date}; {LoggerType.Error}: {text}");
-            Console.WriteLine($"{_loggerRecord.Date}; {LoggerType.Error}: {text}");
+             LoggerRecord loggerRecord = new LoggerRecord() { Type = LoggerType.Error };
+             _logs.Add($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
+             Console.WriteLine($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
         }
 
         public void LoggerInfo(string text)
         {
-            _logs.Add($"{_loggerRecord.Date}; {LoggerType.Info}: {text}");
-            Console.WriteLine($"{_loggerRecord.Date}; {LoggerType.Info}: {text}");
+            LoggerRecord loggerRecord = new LoggerRecord() { Type = LoggerType.Info };
+            _logs.Add($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
+            Console.WriteLine($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
         }
 
         public void LoggerWarning(string text)
         {
-            _logs.Add($"{_loggerRecord.Date}; {LoggerType.Warning}: {text}");
-            Console.WriteLine($"{_loggerRecord.Date}; {LoggerType.Warning}: {text}");
+            LoggerRecord loggerRecord = new LoggerRecord() { Type = LoggerType.Warning };
+            _logs.Add($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
+            Console.WriteLine($"{loggerRecord.Date}; {loggerRecord.Type}: {text}");
         }
 
         public string GetLogs()
